@@ -16,6 +16,7 @@ public class Main {
         ValueComparator bvc = new ValueComparator(data);
         Map<String, Integer> time = new TreeMap<String, Integer>();
         Map<String, Double> maxData = new TreeMap<String, Double>(bvc);
+        Map<String, Double> topTen = new TreeMap<String, Double>(bvc);
         BufferedReader in = new BufferedReader(new FileReader("C:\\Users\\User\\Desktop\\access.log"));
         String line = "";
         int i = 0;
@@ -36,19 +37,52 @@ public class Main {
         in.close();
 
         maxData.putAll(data);
-        System.out.println("results: " + maxData);
-
 //        System.out.println(data.toString());
 //        data.entrySet().stream()
 //                .sorted(Map.Entry.<String, Double>comparingByValue().reversed())
 //                .forEach();
+        int k=9;
+        for(Map.Entry<String,Double > entry : maxData.entrySet()) {
+            String key = entry.getKey();
+            Double value = entry.getValue();
+            topTen.put(key,value);
+            k--;
+            if(k<0)break;
+        }
+
+        String[] str = topTen.keySet().toArray(new String[0]);
+        String[] str1 = map.values().toArray(new String[0]);
+
+
+
+//        for (Integer p: map.keySet()
+//             ) {
+//            if(topTen.keySet(map.get(p))){
+//                System.out.println("Есть пробитие");
+//            }
+//        }
 
         try (FileWriter writer = new FileWriter("out.txt")) {
-                for (Integer key : logs.keySet()) {
-                    if(maxData.containsKey(map.get(key))){
-                        writer.write(logs.get(key)+"\n");
+//                for (Integer key : logs.keySet()) {
+//                    if(maxData.containsKey(map.get(key))){
+//                        writer.write(logs.get(key)+"\n");
+//                    }
+//                    for(Map.Entry<Integer,String > entry : logs.entrySet()) {
+//                        Integer key = entry.getKey();
+//                         String value = entry.getValue();
+//                        if(topTen.containsKey(map.get(key))){
+//                            writer.write(value+"\n");
+//                        }
+//                        // do what you have to do here
+//                        // In your case, another loop.
+//                    }
+            for(int s=0;s< str1.length;s++){
+                for(int d=0;d< str.length;d++){
+                    if(str1[s].equals(str[d])){
+                        writer.write(logs.get(s)+"\n");
                     }
                 }
+            }
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
