@@ -79,7 +79,7 @@ public class Main {
             for(int s=0;s< str1.length;s++){
                 for(int d=0;d< str.length;d++){
                     if(str1[s].equals(str[d])){
-                        writer.write(logs.get(s)+"\n");
+                        writer.write(logs.get(s+1)+"\n");
                     }
                 }
             }
