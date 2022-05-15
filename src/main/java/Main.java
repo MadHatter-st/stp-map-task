@@ -7,7 +7,7 @@ import java.util.TreeMap;
 public class Main {
     public static void main(String[] args) throws IOException {//commit
         Map<Integer, String> map = new TreeMap<Integer, String>();
-        BufferedReader in = new BufferedReader(new FileReader("access.log"));
+        BufferedReader in = new BufferedReader(new FileReader("C:\\Users\\User\\Desktop\\access.log"));
         String  line = "";
         int i = 0;
         while ((line = in.readLine()) != null) {
