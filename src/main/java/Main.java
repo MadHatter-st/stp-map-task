@@ -32,9 +32,12 @@ public class Main {
                 data.put(parts[2], data.get(parts[2]) + Double.parseDouble(parts[4]));
                 time.put(parts[2], time.get(parts[2]) + Integer.parseInt(parts[1]));
             }
-            data.put(parts[2], data.get(parts[2]) / time.get(parts[2]));
+//            data.put(parts[2], data.get(parts[2]) / time.get(parts[2]));
         }
         in.close();
+
+
+
 
         maxData.putAll(data);
 //        System.out.println(data.toString());
@@ -50,8 +53,8 @@ public class Main {
             if(k<0)break;
         }
 
-        String[] str = topTen.keySet().toArray(new String[0]);
-        String[] str1 = map.values().toArray(new String[0]);
+//        String[] str = topTen.keySet().toArray(new String[0]);
+//        String[] str1 = map.values().toArray(new String[0]);
 
 
 
@@ -76,12 +79,18 @@ public class Main {
 //                        // do what you have to do here
 //                        // In your case, another loop.
 //                    }
-            for(int s=0;s< str1.length;s++){
-                for(int d=0;d< str.length;d++){
-                    if(str1[s].equals(str[d])){
-                        writer.write(logs.get(s+1)+"\n");
-                    }
-                }
+//            for(int s=0;s< str1.length;s++){
+//                for(int d=0;d< str.length;d++){
+//                    if(str1[s].equals(str[d])){
+//                        writer.write(logs.get(s+1)+"\n");
+//                    }
+//                }
+//            }
+
+            for(Map.Entry<String,Double > entry : topTen.entrySet()) {
+                String key = entry.getKey();
+                Double value = entry.getValue();
+                writer.write(key+" "+value+"\n");
             }
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
