@@ -10,13 +10,15 @@ import java.util.TreeMap;
 public class Main {
     public static void main(String[] args) throws IOException {
 
+
         Map<Integer, String> map = new TreeMap<Integer, String>();
+        Map<Integer, Double> test = new TreeMap<Integer, Double>();
         Map<Integer, String> logs = new TreeMap<Integer, String>();
         Map<String, Double> data = new HashMap<String, Double>();
         ValueComparator bvc = new ValueComparator(data);
         Map<String, Integer> time = new TreeMap<String, Integer>();
         Map<String, Double> maxData = new TreeMap<String, Double>(bvc);
-        Map<String, Double> topTen = new TreeMap<String, Double>(bvc);
+        Map<String, Double> topTen = new TreeMap<String,Double>(bvc);
         BufferedReader in = new BufferedReader(new FileReader("C:\\Users\\User\\Desktop\\access.log"));
         String line = "";
         int i = 0;
@@ -37,8 +39,10 @@ public class Main {
         in.close();
 
 
-
-
+        test.put(1,2.);
+        test.put(1,2.);
+        test.put(1,2.);
+        test.put(1,test.get(1)+2.);
         maxData.putAll(data);
 //        System.out.println(data.toString());
 //        data.entrySet().stream()
