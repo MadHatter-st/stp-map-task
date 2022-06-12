@@ -12,7 +12,7 @@ public class Main {
 
 
         Map<Integer, String> map = new TreeMap<Integer, String>();
-        Map<Integer, Double> test = new TreeMap<Integer, Double>();
+//        Map<Integer, Double> test = new TreeMap<Integer, Double>();
         Map<Integer, String> logs = new TreeMap<Integer, String>();
         Map<String, Double> data = new HashMap<String, Double>();
         ValueComparator bvc = new ValueComparator(data);
@@ -39,10 +39,10 @@ public class Main {
         in.close();
 
 
-        test.put(1,2.);
-        test.put(1,2.);
-        test.put(1,2.);
-        test.put(1,test.get(1)+2.);
+//        test.put(1,2.);
+//        test.put(1,2.);
+//        test.put(1,2.);
+//        test.put(1,test.get(1)+2.);
         maxData.putAll(data);
 //        System.out.println(data.toString());
 //        data.entrySet().stream()
